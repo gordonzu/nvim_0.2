@@ -7,7 +7,12 @@ return require('packer').startup(function(use)
     use({'theprimeagen/harpoon'})
     use({'mbbill/undotree'})
     use({'tpope/vim-fugitive'})
-    use({'preservim/nerdtree'})
+    --use({'preservim/nerdtree'})
+    use({'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons',
+        }
+    })
     use({'lewis6991/gitsigns.nvim'})
 
     use({'numToStr/Comment.nvim',

@@ -1,7 +1,8 @@
 local builtin = require 'telescope.builtin'
 
 vim.g.mapleader = " "
-vim.keymap.set('n', "<F2>", vim.cmd.NERDTreeToggle)
+--vim.keymap.set('n', "<F2>", vim.cmd.NERDTreeToggle)
+vim.keymap.set('n', "<F2>", vim.cmd.NvimTreeOpen)
 vim.keymap.set('n', '<leader>pa', vim.cmd.PackerSync)
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 

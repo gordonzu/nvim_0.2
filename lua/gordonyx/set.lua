@@ -23,3 +23,22 @@ vim.opt.guifont = "monospace:h17"
 vim.opt.omnifunc = "v:lua.vim.lsp.omnifunc"
 vim.opt.clipboard = "unnamedplus"
 
+require("nvim-tree").setup({
+    disable_netrw = true,
+    sort = {
+        sorter = "case_sensitive",
+    },
+    view = {
+        width = 30,
+    },
+    renderer = {
+        group_empty = true,
+    },
+})
+
+
+
+
+
+
+

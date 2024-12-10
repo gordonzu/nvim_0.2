@@ -1,7 +1,7 @@
 local builtin = require 'telescope.builtin'
 
 vim.g.mapleader = " "
-vim.keymap.set('n', "<F2>", vim.cmd.NvimTreeOpen)
+vim.keymap.set('n', "<F2>", vim.cmd.NvimTreeToggle)
 vim.keymap.set('n', '<leader>pa', vim.cmd.PackerSync)
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
@@ -29,6 +29,17 @@ end)
 vim.keymap.set('n', '<leader>sp', function()
 	builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
+
+-- Debugging -----------------------------------------------------
+vim.api.nvim_set_keymap("n", "<leader>dt", ":DapUiToggle<CR>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>db", ":DapToggleBreakpointle<CR>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>dc", ":DapContinue<CR>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>dr", ":lua require('dapui').open({reset = true})<CR>", {noremap = true})
+
+
+
+
+
 
 -- nvim-dap
 --[[ local M = {}

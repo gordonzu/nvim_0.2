@@ -19,12 +19,10 @@ return require('packer').startup(function(use)
         }
     })
 
+    -- Debugging ---------------------------------
     use({'folke/neodev.nvim'})
-    use({'mfussenegger/nvim-dap',
-        config = function()
-            require("gordonyx.remap").load_mappings("dap")
-        end
-    })
+    use({'theHamsta/nvim-dap-virtual-text'})
+    use({'mfussenegger/nvim-dap'})
 
     use({'jay-babu/mason-nvim-dap.nvim',
         requires = {
@@ -39,6 +37,12 @@ return require('packer').startup(function(use)
             'nvim-neotest/nvim-nio',
         },
     })
+
+    require('dapui').setup()
+
+
+
+    -------------------------------------------------
 
     use({'numToStr/Comment.nvim',
         config = function(_, opts)

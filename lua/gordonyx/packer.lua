@@ -7,13 +7,25 @@ return require('packer').startup(function(use)
     use({'theprimeagen/harpoon'})
     use({'mbbill/undotree'})
     use({'tpope/vim-fugitive'})
-    --use({'preservim/nerdtree'})
+    use({'mfussenegger/nvim-dap'})
+    use({'lewis6991/gitsigns.nvim'})
+    use({'cdelledonne/vim-cmake'})
+    use({'marko-cerovac/material.nvim', as = 'material',})
+    use({'fcpg/vim-orbital', as = 'orbital',})
+    use({'rose-pine/neovim', as = 'rose-pine',})
+
+    use({'jay-babu/mason-nvim-dap.nvim',
+        requires = {
+            'williamboman/mason.nvim',
+            'mfussenegger/nvim-dap',
+        }
+    })
+
     use({'nvim-tree/nvim-tree.lua',
         requires = {
             'nvim-tree/nvim-web-devicons',
         }
     })
-    use({'lewis6991/gitsigns.nvim'})
 
     use({'numToStr/Comment.nvim',
         config = function(_, opts)
@@ -21,14 +33,8 @@ return require('packer').startup(function(use)
         end,
     })
 
-    use({'cdelledonne/vim-cmake'})
 
-    use({'marko-cerovac/material.nvim', as = 'material',})
-    use({'fcpg/vim-orbital', as = 'orbital',})
-    use({'rose-pine/neovim', as = 'rose-pine',})
-
-use({
-	    'VonHeikemen/lsp-zero.nvim',
+    use({'VonHeikemen/lsp-zero.nvim',
 	    branch = 'v1.x',
 		requires = {
 		    -- LSP Support
@@ -51,13 +57,12 @@ use({
 	    }
     })
 
-    use({
-            'nvimtools/none-ls.nvim',
+    use({'nvimtools/none-ls.nvim',
             ft = {"python"},
             opts = function()
                 return require "custom.configs.null-ls"
             end,
         })
 
-    end)
+end)
 

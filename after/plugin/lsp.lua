@@ -124,8 +124,10 @@ require'lspconfig'.pyright.setup{
 require('lspconfig').clangd.setup({
      single_file_support = true,
      on_attach = function(client, bufnr)
-         print('hello clangd')
-     end
+         client.server_capabilities.signatureHelpProvider = false
+         on_attach(client, bufnr)
+     end,
+     capabilities = capabilities,
 })
 
 --require'lspconfig'.Comment.setup{}

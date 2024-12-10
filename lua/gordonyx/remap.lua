@@ -1,7 +1,6 @@
 local builtin = require 'telescope.builtin'
 
 vim.g.mapleader = " "
---vim.keymap.set('n', "<F2>", vim.cmd.NERDTreeToggle)
 vim.keymap.set('n', "<F2>", vim.cmd.NvimTreeOpen)
 vim.keymap.set('n', '<leader>pa', vim.cmd.PackerSync)
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
@@ -17,6 +16,7 @@ vim.keymap.set("n", "<leader>Y", "\"+Y")
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "C-f", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+--vim.keymap.set("n", "<leader>t", vim.command.hsplit)
 
 -- Telescope
 vim.keymap.set('n', '<leader>gf', builtin.git_files, {})
@@ -30,3 +30,20 @@ vim.keymap.set('n', '<leader>sp', function()
 	builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
 
+-- nvim-dap
+--[[ local M = {}
+
+M.dap = {
+    plugin = true,
+    n = {
+        ["<leader>bp"] = {
+            "<cmd> DapToggleBreakpoint <CR>",
+            "Add breakpoint at line",
+        },
+        ["<leader>rr"] = {
+            "<cmd> DapContinue <CR>",
+            "Start or continue debugger",
+        }
+    }
+}
+return M ]]

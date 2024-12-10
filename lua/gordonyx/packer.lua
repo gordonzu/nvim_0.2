@@ -7,12 +7,24 @@ return require('packer').startup(function(use)
     use({'theprimeagen/harpoon'})
     use({'mbbill/undotree'})
     use({'tpope/vim-fugitive'})
-    use({'mfussenegger/nvim-dap'})
     use({'lewis6991/gitsigns.nvim'})
     use({'cdelledonne/vim-cmake'})
     use({'marko-cerovac/material.nvim', as = 'material',})
     use({'fcpg/vim-orbital', as = 'orbital',})
     use({'rose-pine/neovim', as = 'rose-pine',})
+
+    use({'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons',
+        }
+    })
+
+    use({'folke/neodev.nvim'})
+    use({'mfussenegger/nvim-dap',
+        config = function()
+            require("gordonyx.remap").load_mappings("dap")
+        end
+    })
 
     use({'jay-babu/mason-nvim-dap.nvim',
         requires = {
@@ -21,33 +33,11 @@ return require('packer').startup(function(use)
         }
     })
 
-    use({'nvim-tree/nvim-tree.lua',
-        requires = {
-            'nvim-tree/nvim-web-devicons',
-        }
-    })
-
     use({'rcarriga/nvim-dap-ui',
         requires = {
             'mfussenegger/nvim-dap',
             'nvim-neotest/nvim-nio',
         },
-    --[[     config = function()
-            local dap = require('dap')
-            local dapui = require('dapui')
-            dapui.setup()
-            dap.listeners.after.event_initialized['dapui_config'] = function()
-                dapui.open()
-            end
-            dap.listeners.before.event_terminated['dapui_config'] = function()
-                dapui.close()
-            end
-            dap.listeners.before.event_exited['dapui_config'] = function()
-                dapui.close()
-            end
-        
-        end
-        --]]
     })
 
     use({'numToStr/Comment.nvim',
@@ -55,7 +45,6 @@ return require('packer').startup(function(use)
             require("Comment").setup(opts)
         end,
     })
-
 
     use({'VonHeikemen/lsp-zero.nvim',
 	    branch = 'v1.x',

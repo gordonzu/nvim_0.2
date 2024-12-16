@@ -29,7 +29,6 @@ require("lazy").setup({
     {'fcpg/vim-orbital'},
     {'rose-pine/neovim'},
     {'nvim-tree/nvim-tree.lua', dependencies = 'nvim-tree/nvim-web-devicons'},
-    --{'vhyrro/luarocks.nvim, priority = 1000, config = true'},
 
     -- Debugging ---------------------------------
     {'folke/neodev.nvim'},
@@ -66,8 +65,6 @@ require("lazy").setup({
         end
     },
 
-    --require('dapui').setup({})
-
     -------------------------------------------------
 
     {'numToStr/Comment.nvim',
@@ -100,10 +97,10 @@ require("lazy").setup({
     },
 
     {'nvimtools/none-ls.nvim',
-            ft = {"python"},
-            opts = function()
-                return require "custom.configs.null-ls"
-            end,
-        },
+        ft = {"python"},
+        opts = function()
+            return require "custom.configs.null-ls"
+        end,
+    },
 
-    })
+})

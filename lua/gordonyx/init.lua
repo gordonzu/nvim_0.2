@@ -1,6 +1,6 @@
+require("gordonyx.set")
 require("gordonyx.remap")
 require("gordonyx.lazy_init")
-require("gordonyx.set")
 
 local autocmd = vim.api.nvim_create_autocmd
 

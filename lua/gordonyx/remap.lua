@@ -1,4 +1,5 @@
 local builtin = require 'telescope.builtin'
+local dap, dapui = require("dap"), require("dapui")
 
 vim.g.mapleader = " "
 vim.keymap.set('n', "<F2>", vim.cmd.NvimTreeToggle)
@@ -18,7 +19,7 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "C-f", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 --vim.keymap.set("n", "<leader>t", vim.command.hsplit)
 
--- Telescope
+-- Telescope ---------------------------------------------------
 vim.keymap.set('n', '<leader>gf', builtin.git_files, {})
 vim.keymap.set('n', '<leader>fd', builtin.diagnostics, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
@@ -31,30 +32,11 @@ vim.keymap.set('n', '<leader>sp', function()
 end)
 
 -- Debugging -----------------------------------------------------
-vim.api.nvim_set_keymap("n", "<leader>dt", ":DapUiToggle<CR>", {noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>db", ":DapToggleBreakpointle<CR>", {noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>dc", ":DapContinue<CR>", {noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>dr", ":lua require('dapui').open({reset = true})<CR>", {noremap = true})
+vim.keymap.set("n", "<leader>dt", dapui.toggle, {noremap = true})
+vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, {})
+vim.keymap.set("n", "<leader>dc", dap.continue, {noremap = true})
+vim.keymap.set("n", "<leader>dl", dap.run_last, {noremap = true})
+--vim.keymap.set("n", "<leader>dr", dapui.open({reset = true}), {noremap = true})
 
 
 
-
-
-
--- nvim-dap
---[[ local M = {}
-
-M.dap = {
-    plugin = true,
-    n = {
-        ["<leader>bp"] = {
-            "<cmd> DapToggleBreakpoint <CR>",
-            "Add breakpoint at line",
-        },
-        ["<leader>rr"] = {
-            "<cmd> DapContinue <CR>",
-            "Start or continue debugger",
-        }
-    }
-}
-return M ]]

@@ -4,7 +4,12 @@ return {
     dependencies = {
         -- LSP Support
         {"neovim/nvim-lspconfig"},
-        {"williamboman/mason.nvim"},
+
+        {
+            "williamboman/mason.nvim",
+            require("mason").setup({})
+        },
+
         {"williamboman/mason-lspconfig.nvim"},
         --{'folke/neodev.nvim'},
 
